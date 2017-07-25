@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>ePlayer</name>
+    <events>
+        <comment>Note that the collisions layer is set to be initially invisible in the editor. </comment>
+        <comment>spr_player_base is set to be initially invisible in the editor.</comment>
+        <event-block sid="451355967341876">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="520038638058548" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="883145526071743" type="spr_player_mask">
+                    <param id="0" name="Object">spr_player_base</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description='Sets &quot;main_direction&quot; and &quot;secondary_direction&quot;.' sid="431355662430812" title="ePlayer/DirectionControl">
+            <sub-events>
+                <comment bookmark="1">TODO: Refactor this! Feels like it could be done cleaner...</comment>
+                <event-block sid="538840112933987">
+                    <conditions>
+                        <condition id="1" name="On any key pressed" sid="466910892813426" type="Keyboard" />
+                        <condition id="-8" name="Compare two values" sid="882288505704202" type="System">
+                            <param id="0" name="First value">Function.Call(&quot;ePlayer/DirectionControl.is_direction_pressed&quot;)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;true&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="613239782268595">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="273564495689519" type="spr_player_base">
+                                    <param id="0" name="Instance variable">main_direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;null&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="437211180728344" type="spr_player_base">
+                                    <param id="0" name="Instance variable">main_direction</param>
+                                    <param id="1" name="Value">Keyboard.StringFromKeyCode(Keyboard.LastKeyCode)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="797058340956326">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="183540166607641" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="286801404871614" type="spr_player_base">
+                                    <param id="0" name="Instance variable">secondary_direction</param>
+                                    <param id="1" name="Value">Keyboard.StringFromKeyCode(Keyboard.LastKeyCode)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="717469905858707">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="655806467479664" type="spr_player_base">
+                            <param id="0" name="Instance variable">secondary_direction</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;null&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="455201551005836">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="688894424503548" type="Keyboard">
+                                    <param id="0" name="Key">38 (Up arrow)</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="272825941153949" type="spr_player_base">
+                                    <param id="0" name="Instance variable">main_direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;↑&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="743711928311395" type="spr_player_base">
+                                    <param id="0" name="Instance variable">main_direction</param>
+                                    <param id="1" name="Value">&quot;null&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="758891760885809">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="903807239026408" type="Keyboard">
+                                    <param id="0" name="Key">37 (Left arrow)</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="316632272208725" type="spr_player_base">
+                                    <param id="0" name="Instance variable">main_direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;←&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="918985037989756" type="spr_player_base">
+                                    <param id="0" name="Instance variable">main_direction</param>
+                                    <param id="1" name="Value">&quot;null&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="534724976390074">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="294911131109596" type="Keyboard">
+                                    <param id="0" name="Key">39 (Right arrow)</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="312692032661106" type="spr_player_base">
+                                    <param id="0" name="Instance variable">main_direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;→&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="801450536517731" type="spr_player_base">
+                                    <param id="0" name="Instance variable">main_direction</param>
+                                    <param id="1" name="Value">&quot;null&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="653125951667271">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="929771211235963" type="Keyboard">
+                                    <param id="0" name="Key">40 (Down arrow)</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="611602800948017" type="spr_player_base">
+                                    <param id="0" name="Instance variable">main_direction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;↓&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="455470134961679" type="spr_player_base">
+                                    <param id="0" name="Instance variable">main_direction</param>
+                                    <param id="1" name="Value">&quot;null&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="227052006348377">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="311994183410020" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="124495622206496">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="540346800217730" type="Keyboard">
+                                    <param id="0" name="Key">38 (Up arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="477333544897416">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="381235348810493" type="spr_player_base">
+                                            <param id="0" name="Instance variable">main_direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;↑&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="665197911351045" type="spr_player_base">
+                                            <param id="0" name="Instance variable">main_direction</param>
+                                            <param id="1" name="Value">Self.secondary_direction</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="170689688607982" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Value">&quot;null&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="408885756585779">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="365528835922656" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;↑&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="616197542827882" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Value">&quot;null&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="112476910116692">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="784730011993864" type="Keyboard">
+                                    <param id="0" name="Key">37 (Left arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="350421829466894">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="453081229775828" type="spr_player_base">
+                                            <param id="0" name="Instance variable">main_direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;←&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="143817645037332" type="spr_player_base">
+                                            <param id="0" name="Instance variable">main_direction</param>
+                                            <param id="1" name="Value">Self.secondary_direction</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="708793260695578" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Value">&quot;null&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="993610091621925">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="819092572653268" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;←&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="405327431441196" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Value">&quot;null&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="838011741407711">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="448512300177623" type="Keyboard">
+                                    <param id="0" name="Key">39 (Right arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="223610258220917">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="677300996015412" type="spr_player_base">
+                                            <param id="0" name="Instance variable">main_direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;→&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="434054106519830" type="spr_player_base">
+                                            <param id="0" name="Instance variable">main_direction</param>
+                                            <param id="1" name="Value">Self.secondary_direction</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="593232208639569" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Value">&quot;null&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="877396544709527">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="186741495371800" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;→&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="569584829945701" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Value">&quot;null&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="530194833215561">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="863589454073185" type="Keyboard">
+                                    <param id="0" name="Key">40 (Down arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="886764962745877">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="217487571108713" type="spr_player_base">
+                                            <param id="0" name="Instance variable">main_direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;↓&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="900739577469403" type="spr_player_base">
+                                            <param id="0" name="Instance variable">main_direction</param>
+                                            <param id="1" name="Value">Self.secondary_direction</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="249786239157783" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Value">&quot;null&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="664692503579296">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="913884573233895" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;↓&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="857361600434743" type="spr_player_base">
+                                            <param id="0" name="Instance variable">secondary_direction</param>
+                                            <param id="1" name="Value">&quot;null&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="714468257029143">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="399516756072149" type="Keyboard">
+                            <param id="0" name="Key">32 (Barra Espaciadora)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="809696772047711" type="spr_player_base">
+                            <param id="0" name="Instance variable">main_direction</param>
+                            <param id="1" name="Value">&quot;null&quot;</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="493994792580575" type="spr_player_base">
+                            <param id="0" name="Instance variable">secondary_direction</param>
+                            <param id="1" name="Value">&quot;null&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="709667944266931">
+                    <conditions>
+                        <condition id="0" name="On function" sid="340236873211505" type="Function">
+                            <param id="0" name="Name">&quot;ePlayer/DirectionControl.is_direction_pressed&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block any="1" sid="998927825762671">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="804100942475355" type="Keyboard">
+                                    <param id="0" name="Key">38 (Up arrow)</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="326632914585201" type="Keyboard">
+                                    <param id="0" name="Key">37 (Left arrow)</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="780676812797171" type="Keyboard">
+                                    <param id="0" name="Key">39 (Right arrow)</param>
+                                </condition>
+                                <condition id="2" name="Key is down" sid="915406351069875" type="Keyboard">
+                                    <param id="0" name="Key">40 (Down arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="309061064091503" type="Function">
+                                    <param id="0" name="Value">&quot;true&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="414627714990335">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="819276683396065" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="100062824118894" type="Function">
+                                    <param id="0" name="Value">&quot;false&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Handles animation for the player." sid="479336294701520" title="ePlayer/Animation">
+            <sub-events>
+                <event-block sid="454964020364608">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="837305308459519" type="spr_player_base">
+                            <param id="0" name="Instance variable">main_direction</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;↑&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="408824906822750" type="spr_player_mask">
+                            <param id="0" name="Animation">&quot;up&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="613996773365292">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="184697138372946" type="spr_player_base">
+                            <param id="0" name="Instance variable">main_direction</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;←&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="749428572252796" type="spr_player_mask">
+                            <param id="0" name="Animation">&quot;side&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="582484935936870" type="spr_player_mask">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="697311742613081">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="233477641982272" type="spr_player_base">
+                            <param id="0" name="Instance variable">main_direction</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;→&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="760556471476751" type="spr_player_mask">
+                            <param id="0" name="Animation">&quot;side&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="275705058508913" type="spr_player_mask">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="526562734290875">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="463157963539257" type="spr_player_base">
+                            <param id="0" name="Instance variable">main_direction</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;↓&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="837681315413912" type="spr_player_mask">
+                            <param id="0" name="Animation">&quot;down&quot;</param>
+                            <param id="1" name="From">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

@@ -9,8 +9,18 @@
     <app-id>com.alcex.ruinsoftime</app-id>
     <unique-id>tujn018kmje6</unique-id>
     <saved-with-version>24400</saved-with-version>
-    <used-plugins />
-    <used-behaviors />
+    <used-plugins>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
@@ -37,15 +47,132 @@
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
-    <object-folder />
+    <object-folder>
+        <object-folder name="System">
+            <object-type name="Function" sid="959309651862921">
+                <plugin id="Function" />
+            </object-type>
+            <object-type name="Keyboard" sid="703955775518699">
+                <plugin id="Keyboard" />
+            </object-type>
+        </object-folder>
+        <object-folder name="Player">
+            <object-type name="spr_player_base" sid="693517409196164">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable comment="Direction the player is facing." name="main_direction" sid="202437348970508" type="string" />
+                    <instance-variable comment="Direction the player will face if he/she lets go of the main dir." name="secondary_direction" sid="625030647530665" type="string" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="8Direction" sid="950213928403257">
+                        <behavior id="EightDir" />
+                    </behavior-type>
+                    <behavior-type name="ScrollTo" sid="629417118710062">
+                        <behavior id="scrollto" />
+                    </behavior-type>
+                </behaviors>
+                <container>
+                    <type>spr_player_mask</type>
+                    <type>spr_player_base</type>
+                </container>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="473987816457826" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.511111" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="spr_player_mask" sid="769062138795838">
+                <plugin id="Sprite" />
+                <container>
+                    <type>spr_player_mask</type>
+                    <type>spr_player_base</type>
+                </container>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="up" pingpong="0" repeatcount="1" repeatto="0" sid="124347585829348" speed="5">
+                        <frame duration="1" hotspotX="0.511111" hotspotY="0.5" original-source="C:\Users\gamedev\Desktop\Ruins of Time\art\player\player_up_0.png">
+                            <collision-poly>
+                                <point x="0.222222" y="0.166667" />
+                                <point x="0.488889" y="0.05" />
+                                <point x="0.8" y="0.15" />
+                                <point x="0.911111" y="0.5" />
+                                <point x="0.822222" y="0.866667" />
+                                <point x="0.488889" y="0.933333" />
+                                <point x="0.2" y="0.85" />
+                                <point x="0.133333" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="down" pingpong="0" repeatcount="1" repeatto="0" sid="307193543429883" speed="5">
+                        <frame duration="1" hotspotX="0.511111" hotspotY="0.5" original-source="C:\Users\gamedev\Desktop\Ruins of Time\art\player\player_down_0.png">
+                            <collision-poly>
+                                <point x="0.2" y="0.15" />
+                                <point x="0.488889" y="0.0333333" />
+                                <point x="0.822222" y="0.133333" />
+                                <point x="0.911111" y="0.5" />
+                                <point x="0.822222" y="0.866667" />
+                                <point x="0.177778" y="0.866667" />
+                                <point x="0.111111" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="side" pingpong="0" repeatcount="1" repeatto="0" sid="780896784977338" speed="5">
+                        <frame duration="1" hotspotX="0.511111" hotspotY="0.5" original-source="C:\Users\gamedev\Desktop\Ruins of Time\art\player\player_side_0.png">
+                            <collision-poly>
+                                <point x="0.2" y="0.15" />
+                                <point x="0.488889" y="0.0333333" />
+                                <point x="0.8" y="0.15" />
+                                <point x="0.777778" y="0.5" />
+                                <point x="0.733333" y="0.8" />
+                                <point x="0.488889" y="0.983333" />
+                                <point x="0.266667" y="0.8" />
+                                <point x="0.222222" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="Background">
+            <object-type name="tm_collisions" sid="426889634984458">
+                <plugin id="Tilemap" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="769189730064569">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+                <tiles />
+            </object-type>
+            <object-type name="tb_ruins_floor" sid="387076411947166">
+                <plugin id="TiledBg" />
+                <texture original-source="C:\Users\gamedev\Desktop\Ruins of Time\art\background\tile.png" />
+            </object-type>
+            <object-type name="tm_ruins_foreground" sid="226816435057542">
+                <plugin id="Tilemap" />
+                <texture original-source="C:\Users\gamedev\Desktop\Ruins of Time\art\background\tilemap_bg.png" />
+                <tiles />
+            </object-type>
+            <object-type name="tm_gradient" sid="407704649751943">
+                <plugin id="Tilemap" />
+                <texture original-source="C:\Users\gamedev\Desktop\Ruins of Time\art\background\tm_gradient.png" />
+                <tiles />
+            </object-type>
+        </object-folder>
+    </object-folder>
     <families />
     <layout-folder>
-        <layout>Layout 1.xml</layout>
+        <layout>TestLayout.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-folder name="Layout Sheets">
+            <event-sheet>elTestLayout.xml</event-sheet>
+        </event-folder>
+        <event-sheet>ePlayer.xml</event-sheet>
     </event-folder>
-    <global-instances />
+    <global-instances>
+        <global-instance type="Function" uid="0" />
+        <global-instance type="Keyboard" uid="3" />
+    </global-instances>
     <sounds-folder />
     <music-folder />
     <files-folder>
