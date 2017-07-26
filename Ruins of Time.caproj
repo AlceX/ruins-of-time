@@ -236,6 +236,7 @@
     <layout-folder>
         <layout-folder name="Levels">
             <layout>LevelTemplate.xml</layout>
+            <layout>Level1.xml</layout>
         </layout-folder>
         <layout>TestLayout.xml</layout>
         <layout>ObjectBank.xml</layout>
