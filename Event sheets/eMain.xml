@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>eMain</name>
+    <events>
+        <event-block sid="528634485806020">
+            <conditions>
+                <condition id="-24" name="For Each (ordered)" sid="407691486422778" type="System">
+                    <param id="0" name="Object">ZOrder</param>
+                    <param id="1" name="Expression">zOrder.Y</param>
+                    <param id="2" name="Order">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-24" name="Move to top" sid="229046434831100" type="ZOrder" />
+            </actions>
+        </event-block>
+        <include>ePlayer</include>
+    </events>
+</c2eventsheet>
