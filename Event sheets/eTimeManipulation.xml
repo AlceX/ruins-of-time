@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>eTimeManipulation</name>
+    <events>
+        <event-block sid="417518109240413">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="973762114498255" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="152178379278643" type="Mouse">
+                    <param id="0" name="Cursor style">7</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="950866482534531">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="293209006164463" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="915560505859731" type="spr_mouse_cursor">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="Handles mouse cursor animations." sid="253814581589187" title="eTimeManipulation/CursorAnimation">
+            <sub-events>
+                <event-block sid="904247243457712">
+                    <conditions>
+                        <condition id="7" name="Cursor is over object" sid="885246339905523" type="Mouse">
+                            <param id="0" name="Object">TimeManipulable</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="899831622940789">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="351647409313192" type="TimeManipulable">
+                                    <param id="0" name="Instance variable">Age</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">Self.Maximum_Age</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="390895171577358" type="TimeManipulable">
+                                    <param id="0" name="Instance variable">Age</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">Self.Minimum_Age</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="196102502228310" type="spr_mouse_cursor">
+                                    <param id="0" name="Animation">&quot;both&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="255025903216978">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="786817024792132" type="System" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="906947697283961">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="332886392919473" type="TimeManipulable">
+                                            <param id="0" name="Instance variable">Age</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">Self.Maximum_Age</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="243255846686748" type="spr_mouse_cursor">
+                                            <param id="0" name="Animation">&quot;progress&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="324737070440247">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="675121851231388" type="TimeManipulable">
+                                            <param id="0" name="Instance variable">Age</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">Self.Minimum_Age</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="970696910079276" type="spr_mouse_cursor">
+                                            <param id="0" name="Animation">&quot;regress&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="794946820894007">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="285940520824148" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="912403669655702" type="spr_mouse_cursor">
+                            <param id="0" name="Animation">&quot;none&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Handles changing the age of objects." sid="673282909566675" title="eTimeManipulation/Manipulation">
+            <sub-events>
+                <event-block sid="488021584323402">
+                    <conditions>
+                        <condition id="6" name="On object clicked" sid="342552296622927" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                            <param id="2" name="Object clicked">TimeManipulable</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="369538492261611">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="442970204104024" type="TimeManipulable">
+                                    <param id="0" name="Instance variable">Age</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">Self.Minimum_Age</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="587271796840671" type="TimeManipulable">
+                                    <param id="0" name="Instance variable">Age</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment bookmark="1">TODO: Play noise</comment>
+                        <event-block sid="911541790196724">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="237748029058405" type="System" />
+                            </conditions>
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="908840824645415">
+                    <conditions>
+                        <condition id="0" name="On click" sid="409646305769557" type="Mouse">
+                            <param id="0" name="Mouse button">2</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="554678602394409">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="142803185956438" type="TimeManipulable">
+                                    <param id="0" name="Instance variable">Age</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">Self.Maximum_Age</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="537661794108917" type="TimeManipulable">
+                                    <param id="0" name="Instance variable">Age</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment bookmark="1">TODO: Play noise</comment>
+                        <event-block sid="302392063593026">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="637280018631929" type="System" />
+                            </conditions>
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

@@ -12,6 +12,7 @@
     <used-plugins>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
@@ -54,6 +55,9 @@
             </object-type>
             <object-type name="Keyboard" sid="703955775518699">
                 <plugin id="Keyboard" />
+            </object-type>
+            <object-type name="Mouse" sid="496875525011701">
+                <plugin id="Mouse" />
             </object-type>
         </object-folder>
         <object-folder name="Player">
@@ -192,6 +196,23 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="spr_mouse_cursor" sid="412345019646116">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="none" pingpong="0" repeatcount="1" repeatto="0" sid="871212753947969" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="both" pingpong="0" repeatcount="1" repeatto="0" sid="861311222249797" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="regress" pingpong="0" repeatcount="1" repeatto="0" sid="606497090727644" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="progress" pingpong="0" repeatcount="1" repeatto="0" sid="937676698670173" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
     </object-folder>
     <families>
@@ -205,10 +226,17 @@
             <members>
                 <member>spr_tree</member>
             </members>
+            <instance-variables>
+                <instance-variable name="Age" sid="605808798274406" type="number" />
+                <instance-variable name="Minimum_Age" sid="337047175621985" type="number" />
+                <instance-variable name="Maximum_Age" sid="748216463721181" type="number" />
+            </instance-variables>
         </family>
     </families>
     <layout-folder>
         <layout>TestLayout.xml</layout>
+        <layout>ObjectBank.xml</layout>
+        <layout>GlobalLayers.xml</layout>
     </layout-folder>
     <event-folder>
         <event-folder name="Layout Sheets">
@@ -216,10 +244,12 @@
         </event-folder>
         <event-sheet>ePlayer.xml</event-sheet>
         <event-sheet>eMain.xml</event-sheet>
+        <event-sheet>eTimeManipulation.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="0" />
         <global-instance type="Keyboard" uid="3" />
+        <global-instance type="Mouse" uid="9" />
     </global-instances>
     <sounds-folder />
     <music-folder />

@@ -3,6 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>eMain</name>
     <events>
+        <include>eTimeManipulation</include>
+        <include>ePlayer</include>
         <event-block sid="528634485806020">
             <conditions>
                 <condition id="-24" name="For Each (ordered)" sid="407691486422778" type="System">
@@ -15,6 +17,5 @@
                 <action id="-24" name="Move to top" sid="229046434831100" type="ZOrder" />
             </actions>
         </event-block>
-        <include>ePlayer</include>
     </events>
 </c2eventsheet>
