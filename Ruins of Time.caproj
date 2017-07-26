@@ -234,16 +234,18 @@
         </family>
     </families>
     <layout-folder>
+        <layout-folder name="Levels">
+            <layout>LevelTemplate.xml</layout>
+        </layout-folder>
         <layout>TestLayout.xml</layout>
         <layout>ObjectBank.xml</layout>
         <layout>GlobalLayers.xml</layout>
     </layout-folder>
     <event-folder>
         <event-folder name="Layout Sheets">
-            <event-sheet>elTestLayout.xml</event-sheet>
+            <event-sheet>elMain.xml</event-sheet>
         </event-folder>
         <event-sheet>ePlayer.xml</event-sheet>
-        <event-sheet>eMain.xml</event-sheet>
         <event-sheet>eTimeManipulation.xml</event-sheet>
     </event-folder>
     <global-instances>
