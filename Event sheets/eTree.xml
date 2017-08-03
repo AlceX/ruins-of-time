@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>eTree</name>
+    <events>
+        <event-block sid="249997919443981">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="235504541311547" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="622594858835082" type="spr_tree_trunk_mask">
+                    <param id="0" name="Object">spr_tree_base</param>
+                    <param id="1" name="Image point (optional)">&quot;tree_point&quot;</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="981334926302835" type="spr_tree_bush_mask">
+                    <param id="0" name="Object">spr_tree_base</param>
+                    <param id="1" name="Image point (optional)">&quot;tree_point&quot;</param>
+                </action>
+                <action id="-26" name="Move to layer" sid="684067988286080" type="spr_tree_trunk_mask">
+                    <param id="0" name="Layer">&quot;background&quot;</param>
+                </action>
+                <action id="-26" name="Move to layer" sid="967014761630431" type="spr_tree_bush_mask">
+                    <param id="0" name="Layer">&quot;foreground&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="367193934193844">
+            <conditions>
+                <condition id="0" name="On function" sid="969661179492124" type="Function">
+                    <param id="0" name="Name">&quot;eTree.Reduce_Age&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Called from &quot;eTimeManipulation&quot;.</comment>
+                <event-block sid="433431037050856">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="639134705736935" type="spr_tree_trunk_mask">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Solid" id="0" name="Set enabled" sid="769981686738819" type="spr_tree_base">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="913195418598211" type="spr_tree_trunk_mask">
+                            <param id="0" name="Animation">&quot;sapling&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="509472589295002" type="spr_tree_bush_mask">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="645978337242473">
+            <conditions>
+                <condition id="0" name="On function" sid="566067589429598" type="Function">
+                    <param id="0" name="Name">&quot;eTree.Increase_Age&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Called from &quot;eTimeManipulation&quot;.</comment>
+                <event-block sid="161815076288646">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="364800053262011" type="spr_tree_trunk_mask">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Solid" id="0" name="Set enabled" sid="127478406791352" type="spr_tree_base">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="916040232102206" type="spr_tree_trunk_mask">
+                            <param id="0" name="Animation">&quot;tree&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="775771063305877" type="spr_tree_bush_mask">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

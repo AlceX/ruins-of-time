@@ -28,7 +28,58 @@
             <use-render-cells>0</use-render-cells>
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
-            <instances />
+            <instances>
+                <instance type="spr_tree_trunk_mask" uid="28">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Age>1</Age>
+                        <Minimum_Age>0</Minimum_Age>
+                        <Maximum_Age>1</Maximum_Age>
+                        <replantable>false</replantable>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>73.5</x>
+                        <y>90</y>
+                        <z>0</z>
+                        <width>147</width>
+                        <height>180</height>
+                        <depth>0</depth>
+                        <hotspotX>0.503401339</hotspotX>
+                        <hotspotY>0.800000012</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="spr_tree_bush_mask" uid="29">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>73.5</x>
+                        <y>90</y>
+                        <z>0</z>
+                        <width>147</width>
+                        <height>180</height>
+                        <depth>0</depth>
+                        <hotspotX>0.503401339</hotspotX>
+                        <hotspotY>0.800000012</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+            </instances>
             <effects />
         </layer>
     </layers>

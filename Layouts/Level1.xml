@@ -173,8 +173,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>304</x>
-                        <y>272</y>
+                        <x>657</x>
+                        <y>336</y>
                         <z>0</z>
                         <width>30</width>
                         <height>45</height>
@@ -185,18 +185,13 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="spr_tree" uid="25">
+                <instance type="spr_tree_base" uid="25">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
-                    <instance-variables>
-                        <Age>1</Age>
-                        <Minimum_Age>0</Minimum_Age>
-                        <Maximum_Age>1</Maximum_Age>
-                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
                             <properties>
@@ -207,30 +202,25 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>176</x>
-                        <y>176</y>
+                        <x>164</x>
+                        <y>203</y>
                         <z>0</z>
-                        <width>147</width>
-                        <height>180</height>
+                        <width>64</width>
+                        <height>64</height>
                         <depth>0</depth>
-                        <hotspotX>0.503401339</hotspotX>
+                        <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="spr_tree" uid="26">
+                <instance type="spr_tree_base" uid="26">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
-                    <instance-variables>
-                        <Age>1</Age>
-                        <Minimum_Age>0</Minimum_Age>
-                        <Maximum_Age>1</Maximum_Age>
-                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
                             <properties>
@@ -241,13 +231,13 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>833</x>
-                        <y>267</y>
+                        <x>832</x>
+                        <y>272</y>
                         <z>0</z>
-                        <width>147</width>
-                        <height>180</height>
+                        <width>64</width>
+                        <height>64</height>
                         <depth>0</depth>
-                        <hotspotX>0.503401339</hotspotX>
+                        <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>

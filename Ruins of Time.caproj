@@ -172,27 +172,33 @@
             </object-type>
         </object-folder>
         <object-folder name="Objects">
-            <object-type name="spr_tree" sid="530386829288262">
+            <object-type name="spr_tree_trunk_mask" sid="530386829288262">
                 <plugin id="Sprite" />
-                <behaviors>
-                    <behavior-type name="Solid" sid="736143883147166">
-                        <behavior id="solid" />
-                    </behavior-type>
-                </behaviors>
+                <instance-variables>
+                    <instance-variable comment="Can be planted in another patch of dirt." name="replantable" sid="205053904522110" type="boolean" />
+                </instance-variables>
+                <container>
+                    <type>spr_tree_base</type>
+                    <type>spr_tree_trunk_mask</type>
+                    <type>spr_tree_bush_mask</type>
+                </container>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="459192746918418" speed="5">
-                        <frame duration="1" hotspotX="0.503401" hotspotY="0.5" original-source="C:\Users\gamedev\Desktop\Ruins of Time\art\objects\tree.png">
+                    <animation framecount="1" loop="0" name="tree" pingpong="0" repeatcount="1" repeatto="0" sid="459192746918418" speed="5">
+                        <frame duration="1" hotspotX="0.503401" hotspotY="0.8" original-source="C:\Users\gamedev\Desktop\Ruins of Time\art\objects\tree_trunk.png">
                             <collision-poly>
-                                <point x="0.197279" y="0.372222" />
-                                <point x="0.510204" y="0.305556" />
-                                <point x="0.863946" y="0.355556" />
+                                <point x="0.136054" y="0.111111" />
+                                <point x="0.496599" y="0" />
+                                <point x="0.877551" y="0.1" />
                                 <point x="0.972789" y="0.5" />
-                                <point x="0.806123" y="0.7" />
-                                <point x="0.493197" y="0.744445" />
-                                <point x="0.207483" y="0.697223" />
+                                <point x="0.857143" y="0.883333" />
+                                <point x="0.496599" y="0.994444" />
+                                <point x="0.136054" y="0.888889" />
                                 <point x="0.0272109" y="0.5" />
                             </collision-poly>
                         </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="sapling" pingpong="0" repeatcount="1" repeatto="0" sid="582672765137190" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -200,15 +206,67 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="none" pingpong="0" repeatcount="1" repeatto="0" sid="871212753947969" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
                     </animation>
                     <animation framecount="1" loop="0" name="both" pingpong="0" repeatcount="1" repeatto="0" sid="861311222249797" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
                     </animation>
                     <animation framecount="1" loop="0" name="regress" pingpong="0" repeatcount="1" repeatto="0" sid="606497090727644" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
                     </animation>
                     <animation framecount="1" loop="0" name="progress" pingpong="0" repeatcount="1" repeatto="0" sid="937676698670173" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="spr_tree_base" sid="420733271668350">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="606007849357877">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <container>
+                    <type>spr_tree_base</type>
+                    <type>spr_tree_trunk_mask</type>
+                    <type>spr_tree_bush_mask</type>
+                </container>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="496619389578771" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="tree_point" x="0.5" y="1" />
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="spr_tree_bush_mask" sid="679947407522173">
+                <plugin id="Sprite" />
+                <container>
+                    <type>spr_tree_base</type>
+                    <type>spr_tree_trunk_mask</type>
+                    <type>spr_tree_bush_mask</type>
+                </container>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="789008772787153" speed="5">
+                        <frame duration="1" hotspotX="0.503401" hotspotY="0.8" original-source="C:\Users\gamedev\Desktop\Ruins of Time\art\objects\tree_bush.png">
+                            <collision-poly>
+                                <point x="0.136054" y="0.111111" />
+                                <point x="0.496599" y="0" />
+                                <point x="0.877551" y="0.1" />
+                                <point x="0.972789" y="0.5" />
+                                <point x="0.646259" y="0.711111" />
+                                <point x="0.496599" y="0.738889" />
+                                <point x="0.360544" y="0.705556" />
+                                <point x="0.0272109" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="spr_sapling_dirt_patch" sid="791591551139161">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="477562992325614" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
@@ -219,12 +277,12 @@
         <family name="ZOrder" plugin-id="Sprite" sid="978350222099413">
             <members>
                 <member>spr_player_mask</member>
-                <member>spr_tree</member>
+                <member>spr_tree_trunk_mask</member>
             </members>
         </family>
         <family name="TimeManipulable" plugin-id="Sprite" sid="230279013241703">
             <members>
-                <member>spr_tree</member>
+                <member>spr_tree_trunk_mask</member>
             </members>
             <instance-variables>
                 <instance-variable name="Age" sid="605808798274406" type="number" />
@@ -248,6 +306,7 @@
         </event-folder>
         <event-sheet>ePlayer.xml</event-sheet>
         <event-sheet>eTimeManipulation.xml</event-sheet>
+        <event-sheet>eTree.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="0" />

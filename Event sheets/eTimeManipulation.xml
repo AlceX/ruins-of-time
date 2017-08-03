@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>eTimeManipulation</name>
     <events>
+        <include>eTree</include>
         <event-block sid="417518109240413">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="973762114498255" type="System" />
@@ -132,6 +133,10 @@
                                     <param id="0" name="Instance variable">Age</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
+                                <action id="0" name="Call function" sid="166270881358883" type="Function">
+                                    <param id="0" name="Name">&quot;eTimeManipulation/Manipulation.reduce_age&quot;</param>
+                                    <param id="1" name="Parameter {n}">TimeManipulable.UID</param>
+                                </action>
                             </actions>
                         </event-block>
                         <comment bookmark="1">TODO: Play noise</comment>
@@ -165,6 +170,10 @@
                                     <param id="0" name="Instance variable">Age</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
+                                <action id="0" name="Call function" sid="783518797943274" type="Function">
+                                    <param id="0" name="Name">&quot;eTimeManipulation/Manipulation.increase_age&quot;</param>
+                                    <param id="1" name="Parameter {n}">TimeManipulable.UID</param>
+                                </action>
                             </actions>
                         </event-block>
                         <comment bookmark="1">TODO: Play noise</comment>
@@ -173,6 +182,52 @@
                                 <condition id="-22" name="Else" sid="637280018631929" type="System" />
                             </conditions>
                             <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="255355767774395">
+                    <conditions>
+                        <condition id="0" name="On function" sid="170574913200667" type="Function">
+                            <param id="0" name="Name">&quot;eTimeManipulation/Manipulation.reduce_age&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="893912103060290">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="786808956720798" type="spr_tree_trunk_mask">
+                                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="245354475535551" type="Function">
+                                    <param id="0" name="Name">&quot;eTree.Reduce_Age&quot;</param>
+                                    <param id="1" name="Parameter {n}">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="900568606768745">
+                    <conditions>
+                        <condition id="0" name="On function" sid="151725173701985" type="Function">
+                            <param id="0" name="Name">&quot;eTimeManipulation/Manipulation.increase_age&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="195554667785718">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="207610874298622" type="spr_tree_trunk_mask">
+                                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="440696820333758" type="Function">
+                                    <param id="0" name="Name">&quot;eTree.Increase_Age&quot;</param>
+                                    <param id="1" name="Parameter {n}">Function.Param(0)</param>
+                                </action>
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-block>
