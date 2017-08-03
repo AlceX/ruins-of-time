@@ -66,6 +66,7 @@
                 <instance-variables>
                     <instance-variable comment="Direction the player is facing." name="main_direction" sid="202437348970508" type="string" />
                     <instance-variable comment="Direction the player will face if he/she lets go of the main dir." name="secondary_direction" sid="625030647530665" type="string" />
+                    <instance-variable comment="Name of the object in inventory. Empty if none." name="inventory" sid="272845143729879" type="string" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="8Direction" sid="950213928403257">
@@ -198,7 +199,9 @@
                         </frame>
                     </animation>
                     <animation framecount="1" loop="0" name="sapling" pingpong="0" repeatcount="1" repeatto="0" sid="582672765137190" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="sapling" x="0.53125" y="0.78125" />
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -265,6 +268,9 @@
             </object-type>
             <object-type name="spr_sapling_dirt_patch" sid="791591551139161">
                 <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="hasTreePlanted" sid="743378608544860" type="boolean" />
+                </instance-variables>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="477562992325614" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -277,7 +283,7 @@
         <family name="ZOrder" plugin-id="Sprite" sid="978350222099413">
             <members>
                 <member>spr_player_mask</member>
-                <member>spr_tree_trunk_mask</member>
+                <member>spr_sapling_dirt_patch</member>
             </members>
         </family>
         <family name="TimeManipulable" plugin-id="Sprite" sid="230279013241703">

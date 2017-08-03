@@ -471,5 +471,91 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="Checks the conditions for interaction and calls the appropiate functions." sid="725543463552754" title="ePlayer/ObjectInteraction">
+            <sub-events>
+                <comment>&quot;E&quot; is the interaction button</comment>
+                <event-block sid="757104151011648">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="946944990801293" type="Keyboard">
+                            <param id="0" name="Key">69 (E)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="150864319181679">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="949348969400790" type="spr_player_base">
+                                    <param id="0" name="Object">spr_sapling_dirt_patch</param>
+                                </condition>
+                                <condition id="-9" name="Is visible" sid="696968703204849" type="spr_sapling_dirt_patch" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <comment>&quot;Wait 0 seconds&quot; is a neat little trick that waits for all events to be processed (a &quot;Late Update&quot; of sorts).</comment>
+                                <comment>In this case if I didn&apos;t have it, these events would activate simultaneously.</comment>
+                                <event-block sid="877842990783824">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="191089162157270" type="spr_player_base">
+                                            <param id="0" name="Instance variable">inventory</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;sapling&quot;</param>
+                                        </condition>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="626014753333193" type="spr_sapling_dirt_patch">
+                                            <param id="0" name="Instance variable">hasTreePlanted</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="913475439044156" type="Function">
+                                            <param id="0" name="Name">&quot;eTree.Add_Sapling&quot;</param>
+                                            <param id="1" name="Parameter {n}">spr_sapling_dirt_patch.UID</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="718118114423399" type="System">
+                                            <param id="0" name="Seconds">0</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="917403870932479" type="spr_player_base">
+                                            <param id="0" name="Instance variable">inventory</param>
+                                            <param id="1" name="Value">&quot;&quot;</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="207284870595788" type="spr_sapling_dirt_patch">
+                                            <param id="0" name="Instance variable">hasTreePlanted</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="571810388415618">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="442418481964982" type="spr_player_base">
+                                            <param id="0" name="Instance variable">inventory</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;&quot;</param>
+                                        </condition>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="987643528029711" type="spr_sapling_dirt_patch">
+                                            <param id="0" name="Instance variable">hasTreePlanted</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="708737257002927" type="Function">
+                                            <param id="0" name="Name">&quot;eTree.Remove_Sapling&quot;</param>
+                                            <param id="1" name="Parameter {n}">spr_sapling_dirt_patch.UID</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="895683274691485" type="System">
+                                            <param id="0" name="Seconds">0</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="855420109089402" type="spr_player_base">
+                                            <param id="0" name="Instance variable">inventory</param>
+                                            <param id="1" name="Value">&quot;sapling&quot;</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="215706945587507" type="spr_sapling_dirt_patch">
+                                            <param id="0" name="Instance variable">hasTreePlanted</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>

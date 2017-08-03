@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>eTree</name>
     <events>
+        <comment>Currently I&apos;m assuming all trees start old... bad.</comment>
         <event-block sid="249997919443981">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="235504541311547" type="System" />
@@ -20,9 +21,28 @@
                     <param id="0" name="Layer">&quot;background&quot;</param>
                 </action>
                 <action id="-26" name="Move to layer" sid="967014761630431" type="spr_tree_bush_mask">
-                    <param id="0" name="Layer">&quot;foreground&quot;</param>
+                    <param id="0" name="Layer">&quot;gradient&quot;</param>
                 </action>
             </actions>
+            <sub-events>
+                <event-block sid="836972860431157">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="449489740696099" type="spr_tree_trunk_mask">
+                            <param id="0" name="Instance variable">replantable</param>
+                        </condition>
+                        <condition id="-15" name="Pick nearest/furthest" sid="839501951891642" type="spr_sapling_dirt_patch">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="X">spr_tree_trunk_mask.X</param>
+                            <param id="2" name="Y">spr_tree_trunk_mask.Y</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="377383869354719" type="spr_sapling_dirt_patch">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="367193934193844">
             <conditions>
@@ -51,6 +71,31 @@
                             <param id="0" name="Visibility">0</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <comment>REFACTOR: Would be smarter to just set the position once although it&apos;s more complicated due to the conditions and picks</comment>
+                        <event-block sid="355226074828477">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="878690157040833" type="spr_tree_trunk_mask">
+                                    <param id="0" name="Instance variable">replantable</param>
+                                </condition>
+                                <condition id="-15" name="Pick nearest/furthest" sid="883236449355657" type="spr_sapling_dirt_patch">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="X">spr_tree_trunk_mask.X</param>
+                                    <param id="2" name="Y">spr_tree_trunk_mask.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="333950199875998" type="spr_sapling_dirt_patch">
+                                    <param id="0" name="Object">spr_tree_trunk_mask</param>
+                                    <param id="1" name="Image point (optional)">&quot;sapling&quot;</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="942969431794483" type="spr_sapling_dirt_patch">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-24" name="Move to top" sid="885084585574292" type="spr_sapling_dirt_patch" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
@@ -81,6 +126,119 @@
                             <param id="0" name="Visibility">1</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="915363201035843">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="382148464630114" type="spr_tree_trunk_mask">
+                                    <param id="0" name="Instance variable">replantable</param>
+                                </condition>
+                                <condition id="-15" name="Pick nearest/furthest" sid="455630253769427" type="spr_sapling_dirt_patch">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="X">spr_tree_trunk_mask.X</param>
+                                    <param id="2" name="Y">spr_tree_trunk_mask.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="858350223571004" type="spr_sapling_dirt_patch">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="605761013799734">
+            <conditions>
+                <condition id="0" name="On function" sid="315768827687714" type="Function">
+                    <param id="0" name="Name">&quot;eTree.Remove_Sapling&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Called from &quot;ePlayer&quot;.</comment>
+                <event-block sid="414983416763121">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="436282723033651" type="spr_sapling_dirt_patch">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Welp this nesting is ugly, but I think (?) it&apos;s neccesary for the way picking works.</comment>
+                        <event-block sid="163898395400227">
+                            <conditions>
+                                <condition id="-15" name="Pick nearest/furthest" sid="743334337796069" type="spr_tree_trunk_mask">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="X">spr_sapling_dirt_patch.X</param>
+                                    <param id="2" name="Y">spr_sapling_dirt_patch.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="690682549535506" type="spr_tree_base">
+                                    <param id="0" name="X">-100</param>
+                                    <param id="1" name="Y">-100</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="841586326903782" type="spr_tree_trunk_mask">
+                                    <param id="0" name="Object">spr_tree_base</param>
+                                    <param id="1" name="Image point (optional)">&quot;tree_point&quot;</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="787861518666446" type="spr_tree_bush_mask">
+                                    <param id="0" name="Object">spr_tree_base</param>
+                                    <param id="1" name="Image point (optional)">&quot;tree_point&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="992652034365681">
+            <conditions>
+                <condition id="0" name="On function" sid="376765805119438" type="Function">
+                    <param id="0" name="Name">&quot;eTree.Add_Sapling&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Called from &quot;ePlayer&quot;.</comment>
+                <event-block sid="182098954392468">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="228585889416685" type="spr_sapling_dirt_patch">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Some little math in the movement because I want the &quot;sapling&quot; image point to be set to the position of the dirt patch.</comment>
+                        <event-block sid="776316525233032">
+                            <conditions>
+                                <condition id="-15" name="Pick nearest/furthest" sid="700839150050296" type="spr_tree_base">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="X">-100</param>
+                                    <param id="2" name="Y">-100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="249650400467561" type="spr_tree_base">
+                                    <param id="0" name="Object">spr_sapling_dirt_patch</param>
+                                    <param id="1" name="Image point (optional)">0</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="128257537129186" type="spr_tree_base">
+                                    <param id="0" name="X">Self.X</param>
+                                    <param id="1" name="Y">Self.Y - (Self.ImagePointY(&quot;tree_point&quot;) + 10 - Self.Y)</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="717314006635056" type="spr_tree_trunk_mask">
+                                    <param id="0" name="Object">spr_tree_base</param>
+                                    <param id="1" name="Image point (optional)">&quot;tree_point&quot;</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="213063418875513" type="spr_tree_bush_mask">
+                                    <param id="0" name="Object">spr_tree_base</param>
+                                    <param id="1" name="Image point (optional)">&quot;tree_point&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
