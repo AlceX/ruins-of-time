@@ -242,5 +242,258 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <comment>REFACTOR: I&apos;d prefer this to be called once when necesarry, instead of running this every frame. Also... I&apos;m not that sure I can explain this logic all that well, which means it probably can be written better. Think about it! Write a diagram or something.</comment>
+        <event-block sid="262328056510913">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="614462671465512" type="System">
+                    <param id="0" name="Variable">Current_Floor</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;top&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Solid" id="0" name="Set enabled" sid="142602204371549" type="spr_tree_base">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-26" name="Move to layer" sid="932375763315536" type="spr_tree_bush_mask">
+                    <param id="0" name="Layer">&quot;objects&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="642208249450716">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="812913653266370" type="spr_tree_trunk_mask">
+                            <param id="0" name="Instance variable">bottom_tiles</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="339004226407211" type="spr_tree_trunk_mask">
+                            <param id="0" name="Instance variable">top_tiles</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable comment="x,y of the current tile being worked with" constant="0" name="tile_pos" sid="509989774332001" static="0" type="text"></variable>
+                        <event-block sid="961512067147695">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="551733843561657" type="spr_tree_trunk_mask">
+                                    <param id="0" name="Instance variable">Age</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="419510277718021">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="191099416386725" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">tokencount(spr_tree_trunk_mask.bottom_tiles, &quot;;&quot;) - 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="423785105616755" type="System">
+                                            <param id="0" name="Variable">tile_pos</param>
+                                            <param id="1" name="Value">tokenat(spr_tree_trunk_mask.bottom_tiles, loopindex, &quot;;&quot;)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="386091195081471" type="System">
+                                            <param id="0" name="Variable">tile_pos</param>
+                                            <param id="1" name="Value">replace(replace(replace(trim(tile_pos), &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;), &quot; &quot;, &quot;&quot;)</param>
+                                        </action>
+                                        <action id="0" name="Erase tile" sid="356743808688670" type="tm_collisions">
+                                            <param id="0" name="Tile X">int(tokenat(tile_pos, 0, &quot;,&quot;))</param>
+                                            <param id="1" name="Tile Y">int(tokenat(tile_pos, 1, &quot;,&quot;))</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="930235297813813">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="383595286006186" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">tokencount(spr_tree_trunk_mask.top_tiles, &quot;;&quot;) - 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="765302545565035" type="System">
+                                            <param id="0" name="Variable">tile_pos</param>
+                                            <param id="1" name="Value">tokenat(spr_tree_trunk_mask.top_tiles, loopindex, &quot;;&quot;)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="197543798735685" type="System">
+                                            <param id="0" name="Variable">tile_pos</param>
+                                            <param id="1" name="Value">replace(replace(replace(trim(tile_pos), &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;), &quot; &quot;, &quot;&quot;)</param>
+                                        </action>
+                                        <action id="1" name="Set tile" sid="293584048716519" type="tm_collisions">
+                                            <param id="0" name="Tile X">int(tokenat(tile_pos, 0, &quot;,&quot;))</param>
+                                            <param id="1" name="Tile Y">int(tokenat(tile_pos, 1, &quot;,&quot;))</param>
+                                            <param id="2" name="Tile">1</param>
+                                            <param id="3" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="771729037135769">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="262893658712493" type="spr_tree_trunk_mask">
+                                    <param id="0" name="Instance variable">Age</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="535359265578440">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="765497873610681" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">tokencount(spr_tree_trunk_mask.bottom_tiles, &quot;;&quot;) - 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="128727911359253" type="System">
+                                            <param id="0" name="Variable">tile_pos</param>
+                                            <param id="1" name="Value">tokenat(spr_tree_trunk_mask.bottom_tiles, loopindex, &quot;;&quot;)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="891084645169740" type="System">
+                                            <param id="0" name="Variable">tile_pos</param>
+                                            <param id="1" name="Value">replace(replace(replace(trim(tile_pos), &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;), &quot; &quot;, &quot;&quot;)</param>
+                                        </action>
+                                        <action id="1" name="Set tile" sid="225345791464813" type="tm_collisions">
+                                            <param id="0" name="Tile X">int(tokenat(tile_pos, 0, &quot;,&quot;))</param>
+                                            <param id="1" name="Tile Y">int(tokenat(tile_pos, 1, &quot;,&quot;))</param>
+                                            <param id="2" name="Tile">1</param>
+                                            <param id="3" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="414870930050114">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="290414850775857" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">tokencount(spr_tree_trunk_mask.top_tiles, &quot;;&quot;) - 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="378133392325933" type="System">
+                                            <param id="0" name="Variable">tile_pos</param>
+                                            <param id="1" name="Value">tokenat(spr_tree_trunk_mask.top_tiles, loopindex, &quot;;&quot;)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="600373685798870" type="System">
+                                            <param id="0" name="Variable">tile_pos</param>
+                                            <param id="1" name="Value">replace(replace(replace(trim(tile_pos), &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;), &quot; &quot;, &quot;&quot;)</param>
+                                        </action>
+                                        <action id="0" name="Erase tile" sid="834219042694227" type="tm_collisions">
+                                            <param id="0" name="Tile X">int(tokenat(tile_pos, 0, &quot;,&quot;))</param>
+                                            <param id="1" name="Tile Y">int(tokenat(tile_pos, 1, &quot;,&quot;))</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="945219203008068">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="466908673211130" type="System">
+                    <param id="0" name="Variable">Current_Floor</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;bottom&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="231612841260385">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="754687663825970" type="spr_tree_trunk_mask">
+                            <param id="0" name="Instance variable">Age</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Solid" id="0" name="Set enabled" sid="637836446305730" type="spr_tree_base">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-26" name="Move to layer" sid="653129848533519" type="spr_tree_bush_mask">
+                            <param id="0" name="Layer">&quot;gradient&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="335953623773868">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="437773295204844" type="spr_tree_trunk_mask">
+                            <param id="0" name="Instance variable">bottom_tiles</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="207970172969029" type="spr_tree_trunk_mask">
+                            <param id="0" name="Instance variable">top_tiles</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable comment="x,y of the current tile being worked with" constant="0" name="tile_pos" sid="431166335740888" static="0" type="text"></variable>
+                        <event-block sid="677714824729378">
+                            <conditions>
+                                <condition id="-10" name="For" sid="467703741493075" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">tokencount(spr_tree_trunk_mask.bottom_tiles, &quot;;&quot;) - 1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="424245104260857" type="System">
+                                    <param id="0" name="Variable">tile_pos</param>
+                                    <param id="1" name="Value">tokenat(spr_tree_trunk_mask.bottom_tiles, loopindex, &quot;;&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="535086536268618" type="System">
+                                    <param id="0" name="Variable">tile_pos</param>
+                                    <param id="1" name="Value">replace(replace(replace(trim(tile_pos), &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;), &quot; &quot;, &quot;&quot;)</param>
+                                </action>
+                                <action id="1" name="Set tile" sid="888607574620575" type="tm_collisions">
+                                    <param id="0" name="Tile X">int(tokenat(tile_pos, 0, &quot;,&quot;))</param>
+                                    <param id="1" name="Tile Y">int(tokenat(tile_pos, 1, &quot;,&quot;))</param>
+                                    <param id="2" name="Tile">1</param>
+                                    <param id="3" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="242677669446572">
+                            <conditions>
+                                <condition id="-10" name="For" sid="548753925817964" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">tokencount(spr_tree_trunk_mask.top_tiles, &quot;;&quot;) - 1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="410125292629671" type="System">
+                                    <param id="0" name="Variable">tile_pos</param>
+                                    <param id="1" name="Value">tokenat(spr_tree_trunk_mask.top_tiles, loopindex, &quot;;&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="283043623707296" type="System">
+                                    <param id="0" name="Variable">tile_pos</param>
+                                    <param id="1" name="Value">replace(replace(replace(trim(tile_pos), &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;), &quot; &quot;, &quot;&quot;)</param>
+                                </action>
+                                <action id="0" name="Erase tile" sid="393082999302523" type="tm_collisions">
+                                    <param id="0" name="Tile X">int(tokenat(tile_pos, 0, &quot;,&quot;))</param>
+                                    <param id="1" name="Tile Y">int(tokenat(tile_pos, 1, &quot;,&quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>

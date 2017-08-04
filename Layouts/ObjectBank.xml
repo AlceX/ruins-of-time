@@ -41,6 +41,8 @@
                         <Minimum_Age>0</Minimum_Age>
                         <Maximum_Age>1</Maximum_Age>
                         <replantable>false</replantable>
+                        <bottom_tiles>(</bottom_tiles>
+                        <top_tiles></top_tiles>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>

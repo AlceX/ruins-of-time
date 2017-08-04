@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>eGlobalVariables</name>
+    <events>
+        <comment>Changed by &quot;ePlayer&quot;. Checked in &quot;eTree&quot;.</comment>
+        <variable comment="Keeps track of which floor of the room the player is in." constant="0" name="Current_Floor" sid="317404322364068" static="0" type="text">bottom</variable>
+    </events>
+</c2eventsheet>

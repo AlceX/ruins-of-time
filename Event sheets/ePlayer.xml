@@ -14,6 +14,9 @@
                     <param id="0" name="Object">spr_player_base</param>
                     <param id="1" name="Image point (optional)">0</param>
                 </action>
+                <action id="0" name="Set text" sid="273081539135902" type="Text">
+                    <param id="0" name="Text">Current_Floor</param>
+                </action>
             </actions>
         </event-block>
         <event-group description='Sets &quot;main_direction&quot; and &quot;secondary_direction&quot;.' sid="431355662430812" title="ePlayer/DirectionControl">
@@ -552,6 +555,60 @@
                                     </actions>
                                 </event-block>
                             </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Handles the player switching between bottom and top floors" sid="563826897132347" title="ePlayer/FloorHandling">
+            <sub-events>
+                <event-block sid="187089451574452">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="338728519636657" type="spr_player_base">
+                            <param id="0" name="Object">spr_floor_trigger</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="213939857797840">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="722690642174879" type="spr_floor_trigger">
+                                    <param id="0" name="Instance variable">floor</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;bottom&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="963782345057387" type="System">
+                                    <param id="0" name="Variable">Current_Floor</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;top&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="987058824287967" type="System">
+                                    <param id="0" name="Variable">Current_Floor</param>
+                                    <param id="1" name="Value">&quot;bottom&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="524687628918448">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="375204391866510" type="spr_floor_trigger">
+                                    <param id="0" name="Instance variable">floor</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;top&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="887900140654889" type="System">
+                                    <param id="0" name="Variable">Current_Floor</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;bottom&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="612066523616984" type="System">
+                                    <param id="0" name="Variable">Current_Floor</param>
+                                    <param id="1" name="Value">&quot;top&quot;</param>
+                                </action>
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-block>

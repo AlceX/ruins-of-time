@@ -170,6 +170,11 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="BoundToLayout">
+                            <properties>
+                                <bound-by>Edge</bound-by>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -198,6 +203,8 @@
                         <Minimum_Age>0</Minimum_Age>
                         <Maximum_Age>1</Maximum_Age>
                         <replantable>false</replantable>
+                        <bottom_tiles>(</bottom_tiles>
+                        <top_tiles></top_tiles>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
