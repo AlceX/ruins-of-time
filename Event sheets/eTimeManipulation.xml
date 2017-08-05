@@ -150,9 +150,10 @@
                 </event-block>
                 <event-block sid="908840824645415">
                     <conditions>
-                        <condition id="0" name="On click" sid="409646305769557" type="Mouse">
+                        <condition id="6" name="On object clicked" sid="409646305769557" type="Mouse">
                             <param id="0" name="Mouse button">2</param>
                             <param id="1" name="Click type">0</param>
+                            <param id="2" name="Object clicked">TimeManipulable</param>
                         </condition>
                     </conditions>
                     <actions />
