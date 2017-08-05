@@ -183,6 +183,8 @@
                     <plugin id="Sprite" />
                     <instance-variables>
                         <instance-variable name="hasTreePlanted" sid="743378608544860" type="boolean" />
+                        <instance-variable comment='&quot;bottom_tiles&quot; for whatever tree is placed here.' name="bottom_tiles" sid="367115315376397" type="string" />
+                        <instance-variable comment='&quot;top_tiles&quot; for whatever tree is placed here.' name="top_tiles" sid="332995901899848" type="string" />
                     </instance-variables>
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="477562992325614" speed="5">

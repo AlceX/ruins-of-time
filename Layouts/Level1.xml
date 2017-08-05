@@ -258,6 +258,8 @@
                     </properties>
                     <instance-variables>
                         <hasTreePlanted>true</hasTreePlanted>
+                        <bottom_tiles></bottom_tiles>
+                        <top_tiles></top_tiles>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -283,6 +285,8 @@
                     </properties>
                     <instance-variables>
                         <hasTreePlanted>false</hasTreePlanted>
+                        <bottom_tiles>[14, 17]; [14, 18]; [14, 19]; [17, 17]; [17, 18]; [17, 19]</bottom_tiles>
+                        <top_tiles>[15, 16]; [16, 16]; [15, 20]; [16, 20]</top_tiles>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
