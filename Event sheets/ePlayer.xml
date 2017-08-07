@@ -14,9 +14,6 @@
                     <param id="0" name="Object">spr_player_base</param>
                     <param id="1" name="Image point (optional)">0</param>
                 </action>
-                <action id="0" name="Set text" sid="273081539135902" type="Text">
-                    <param id="0" name="Text">Current_Floor</param>
-                </action>
             </actions>
         </event-block>
         <event-group description='Sets &quot;main_direction&quot; and &quot;secondary_direction&quot;.' sid="431355662430812" title="ePlayer/DirectionControl">

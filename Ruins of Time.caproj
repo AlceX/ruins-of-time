@@ -300,7 +300,7 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-type name="Text" sid="496314141915060">
+        <object-type name="End" sid="270388919088075">
             <plugin id="Text" />
         </object-type>
     </object-folder>
@@ -308,7 +308,6 @@
         <family name="ZOrder" plugin-id="Sprite" sid="978350222099413">
             <members>
                 <member>spr_player_mask</member>
-                <member>spr_sapling_dirt_patch</member>
             </members>
         </family>
         <family name="TimeManipulable" plugin-id="Sprite" sid="230279013241703">

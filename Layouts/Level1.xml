@@ -179,8 +179,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>881</x>
-                        <y>35</y>
+                        <x>492.819610596</x>
+                        <y>212.272796631</y>
                         <z>0</z>
                         <width>30</width>
                         <height>45</height>
@@ -208,7 +208,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>154</x>
+                        <x>181</x>
                         <y>195</y>
                         <z>0</z>
                         <width>64</width>
@@ -264,7 +264,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>154</x>
+                        <x>181</x>
                         <y>211</y>
                         <z>0</z>
                         <width>64</width>
@@ -292,7 +292,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>513</x>
-                        <y>590</y>
+                        <y>684.546386719</y>
                         <z>0</z>
                         <width>64</width>
                         <height>32</height>
@@ -321,8 +321,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>159</x>
-                        <y>239</y>
+                        <x>181.726394653</x>
+                        <y>247.181686401</y>
                         <z>0</z>
                         <width>147</width>
                         <height>180</height>
@@ -413,9 +413,9 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Text" uid="24">
+                <instance type="End" uid="24">
                     <properties>
-                        <text>Text</text>
+                        <text>END</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-16</font>
                         <color>0,0,0</color>
@@ -428,11 +428,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>959</x>
-                        <y>11</y>
+                        <x>1029.247924805</x>
+                        <y>582.394348145</y>
                         <z>0</z>
-                        <width>200</width>
-                        <height>269</height>
+                        <width>46.362365723</width>
+                        <height>30</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -512,7 +512,7 @@
             <instances>
                 <instance type="tm_collisions" uid="23">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <tile-width>32</tile-width>
                         <tile-height>32</tile-height>
                         <tile-x-offset>0</tile-x-offset>
